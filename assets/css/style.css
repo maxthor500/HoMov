@@ -1,33 +1,56 @@
 /* override different browsers default settings */
-* {
+* 
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+main 
+{
+    background-image: url("./assets/images/pexels.jpg");
+}
+
 /* Navbar style */
-.bg-custom-dark {
+.bg-custom-dark 
+{
     background-color: #17212D;
 }
 
 .nav-link, 
-.dropdown-item {
+.dropdown-item 
+{
     color: #D6A419;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-.nav-link:hover {
+.nav-link:hover 
+{
     color: #E10600;
 }
 
-.dropdown-item {
+.dropdown-item 
+{
     font-size: 1rem;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover 
+{
     background-color: #17212D;
     color: #E10600;
 }
 
+.navbar-toggler:focus {
+    color: #D6A419;
+}
 
+.custom-toggler .navbar-toggler-icon 
+{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(214, 164, 25, .8)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+  
+.custom-toggler.navbar-toggler 
+{
+    border-color: #D6A419;
+} 
