@@ -1,0 +1,33 @@
+/* override different browsers default settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar style */
+.bg-custom-dark {
+    background-color: #17212D;
+}
+
+.nav-link, 
+.dropdown-item {
+    color: #D6A419;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #E10600;
+}
+
+.dropdown-item {
+    font-size: 1rem;
+}
+
+.dropdown-item:hover {
+    background-color: #17212D;
+    color: #E10600;
+}
+
+
