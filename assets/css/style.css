@@ -6,9 +6,10 @@
     box-sizing: border-box;
 }
 
-main 
+body 
 {
-    background-image: url("./assets/images/pexels.jpg");
+    background: #2E4159 url("../images/pexels-cottonbro-studio-3945321.jpg") no-repeat fixed center;
+    background-size: cover;
 }
 
 /* Navbar style */
@@ -18,7 +19,8 @@ main
 }
 
 .nav-link, 
-.dropdown-item 
+.dropdown-item,
+.fa-magnifying-glass
 {
     color: #D6A419;
     font-size: 1.2rem;
@@ -35,14 +37,10 @@ main
     font-size: 1rem;
 }
 
-.dropdown-item:hover 
+.dropdown-item:hover
 {
     background-color: #17212D;
     color: #E10600;
-}
-
-.navbar-toggler:focus {
-    color: #D6A419;
 }
 
 .custom-toggler .navbar-toggler-icon 
@@ -50,7 +48,32 @@ main
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(214, 164, 25, .8)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
   
-.custom-toggler.navbar-toggler 
+.custom-toggler.navbar-toggler,
+.navbar-toggler:focus
 {
     border-color: #D6A419;
-} 
+}
+
+/* style search bar */
+.search-bar 
+{
+    max-width: 40rem;
+}
+
+.input-group 
+{   
+    justify-content: center;
+}
+
+#search-btn:hover
+{
+    background-color: #2E4159;
+}
+
+
+/* change background image size with bigger screens */
+@media screen and (min-width: 900px) {
+    body {
+        background-size: contain;
+    }
+}
