@@ -4,8 +4,8 @@
     <ID>001</ID>
     <GENRE>Drama</GENRE>
     <ACTOR>Samuel L. Jackson</ACTOR>
-    <NAME>Coach Carter</NAME>
-    <IMAGE>"./assets/images/coach_carter_cover.webp"</IMAGE>
+    <NAME><![CDATA[<a id="1" href="listing.html?myMovie=000" target="_blank" >Coach Carter</a>]]></NAME>
+    <IMAGE>./assets/images/coach_carter_cover.webp</IMAGE>
     <PLOT>
           In 1999, Ken Carter accepts the job of basketball coach for his old high school in a poor area of Richmond, CA. 
           As much dismayed by the poor attitudes of his players as well as their dismal play performance, Carter sets about to change both. 
@@ -17,7 +17,7 @@
           determined to show the boys that they need good values for their futures and eventually 
           finds he has affected them more profoundly than he ever expected.
     </PLOT>
-    <VIDEO>"https://www.youtube.com/watch?v=d_GleoanbPE"</VIDEO>
+    <VIDEO>./assets/videos/coach_carter_trailer.mp4</VIDEO>
     <SHOWING>Odeon</SHOWING>
     <COST>€12</COST>
   </MOVIE>
@@ -25,8 +25,8 @@
     <ID>002</ID>
     <GENRE>Crime</GENRE>
     <ACTOR>Quentin Tarantino</ACTOR>
-    <NAME>Reservoir Dogs</NAME>
-    <IMAGE>"./assets/images/reservoir-dogs_cover.png"</IMAGE>
+    <NAME><![CDATA[<a id="2" href="listing.html?myMovie=001" target="_blank" >Reservoir Dogs</a>]]></NAME>
+    <IMAGE>./assets/images/reservoir-dogs_cover.png</IMAGE>
     <PLOT>
          Six thugs, who are strangers to each other, are hired by a crime boss, Joe Cabot, to carry out a diamond robbery. 
          Right at the outset, they are given false names with the intention that they won't get too close and will concentrate on the job instead. 
@@ -35,7 +35,7 @@
          and two of them are killed in the subsequent shootout, along with a few policemen and civilians. 
          When the remaining people assemble at the premeditated rendezvous point (a warehouse), they begin to suspect that one of them is an undercover cop.
     </PLOT>
-    <VIDEO>"https://www.youtube.com/watch?v=vayksn4Y93A"</VIDEO>
+    <VIDEO>./assets/videos/reservoir_dogs_trailer.mp4</VIDEO>
     <SHOWING>Vue</SHOWING>
     <COST>€8</COST>
   </MOVIE>
@@ -43,8 +43,8 @@
     <ID>003</ID>
     <GENRE>Action</GENRE>
     <ACTOR>Bruce Willis</ACTOR>
-    <NAME>Die Hard</NAME>
-    <IMAGE>"./assets/images/die_hard_cover.jpg"</IMAGE>
+    <NAME><![CDATA[<a id="3" href="listing.html?myMovie=002" target="_blank" >Die Hard</a>]]></NAME>
+    <IMAGE>./assets/images/die_hard_cover.jpg</IMAGE>
     <PLOT>
          NYPD cop John McClane goes on a Christmas vacation to visit his wife Holly in Los Angeles where she works for the Nakatomi Corporation. 
          While they are at the Nakatomi headquarters for a Christmas party, 
@@ -52,7 +52,7 @@
          while they plan to perform a lucrative heist. Unable to escape and with no immediate police response, 
          John is forced to take matters into his own hands.
     </PLOT>
-    <VIDEO>"https://www.youtube.com/watch?v=jaJuwKCmJbY"</VIDEO>
+    <VIDEO>./assets/videos/die_hard_trailer.mp4</VIDEO>
     <SHOWING>Vue</SHOWING>
     <COST>€11</COST>
   </MOVIE>
@@ -60,8 +60,8 @@
     <ID>004</ID>
     <GENRE>Comedy</GENRE>
     <ACTOR>Adam Sandler</ACTOR>
-    <NAME>The Longest Yard</NAME>
-    <IMAGE>"./assets/images/the_logest_yard.jpg"</IMAGE>
+    <NAME><![CDATA[<a id="4" href="listing.html?myMovie=003" target="_blank" >The Longest Yard</a>]]></NAME>
+    <IMAGE>./assets/images/the_longest_yard.jpg</IMAGE>
     <PLOT>
          Paul "Wrecking" Crewe was a revered football superstar back in his day, but that time has since faded. 
          But when a messy drunk driving incident lands him in jail, Paul finds he was specifically requested by Warden Hazen (James Cromwell), 
@@ -70,7 +70,7 @@
          and an old legend named Nate Scarborough to coach, Crewe is ready for what promises to be a very interesting game. 
          It's only the warden and the guards who have no idea who or what they're up against, with Paul the driving force behind the new team.
     </PLOT>
-    <VIDEO>"https://www.youtube.com/watch?v=l1BF53bXP8I"</VIDEO>
+    <VIDEO>./assets/videos/longest_yard_trailer.mp4</VIDEO>
     <SHOWING>Omniplex</SHOWING>
     <COST>€10</COST>
   </MOVIE>
