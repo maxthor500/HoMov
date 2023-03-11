@@ -8,8 +8,7 @@
 
 body 
 {
-    background: #2E4159 url("../images/pexels-cottonbro-studio-3945321.jpg") no-repeat fixed center;
-    background-size: cover;
+    background: #2E4159;
 }
 
 /* Navbar style */
@@ -27,7 +26,8 @@ body
     font-weight: bold;
 }
 
-.nav-link:hover 
+.nav-link:hover,
+.fa-circle-half-stroke:hover
 {
     color: #E10600;
 }
@@ -43,6 +43,7 @@ body
     color: #E10600;
 }
 
+/* change the color of the bootstrap toggler */
 .custom-toggler .navbar-toggler-icon 
 {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(214, 164, 25, .8)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -52,6 +53,14 @@ body
 .navbar-toggler:focus
 {
     border-color: #D6A419;
+}
+
+/* toggler button for dark/light mode */
+.fa-circle-half-stroke 
+{   
+    background-color: #17212D;
+    color: #D6A419;
+    font-size: 1.5rem;
 }
 
 /* style search bar */
@@ -67,7 +76,26 @@ body
 
 #search-btn:hover
 {
-    background-color: #2E4159;
+    background-color: #17212D;
+    transform: scale(1.2);
+}
+
+/* sticky footer to the bottom*/
+footer 
+{
+    color: #D6A419;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+#github-link 
+{
+    color: #D6A419;
+    font-size: 1.2rem;
+    padding: .3rem;
 }
 
 
