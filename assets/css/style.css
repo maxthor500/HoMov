@@ -8,13 +8,18 @@
 
 body 
 {
+    background: whitesmoke;
+}
+
+body.dark-mode
+{
     background: #2E4159;
 }
 
 /* Navbar style */
-.bg-custom-dark 
+.bg-custom
 {
-    background-color: #17212D;
+    background-color: #E5F0FF;
 }
 
 .nav-link, 
@@ -39,7 +44,7 @@ body
 
 .dropdown-item:hover
 {
-    background-color: #17212D;
+    background-color: #E5F0FF;
     color: #E10600;
 }
 
@@ -58,7 +63,6 @@ body
 /* toggler button for dark/light mode */
 .fa-circle-half-stroke 
 {   
-    background-color: #17212D;
     color: #D6A419;
     font-size: 1.5rem;
 }
@@ -76,12 +80,12 @@ body
 
 #search-btn:hover
 {
-    background-color: #17212D;
+    background-color: #E5F0FF;
     transform: scale(1.2);
 }
 
 /* sticky footer to the bottom*/
-footer 
+footer
 {
     color: #D6A419;
     text-align: center;
@@ -91,6 +95,12 @@ footer
     bottom: 0;
 }
 
+.bg-custom.dark-mode,
+.dropdown-menu.dark-mode
+{
+    background-color: #17212D;
+}
+
 #github-link 
 {
     color: #D6A419;
@@ -98,10 +108,11 @@ footer
     padding: .3rem;
 }
 
+.table 
+{
+    color: #D6A419;
+}
 
-/* change background image size with bigger screens */
-@media screen and (min-width: 900px) {
-    body {
-        background-size: contain;
-    }
+td>a {
+    color: #D6A419;
 }
