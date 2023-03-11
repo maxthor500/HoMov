@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Movies
+                    Genre
                   </a>
                   <ul class="dropdown-menu bg-custom-dark">
                     <li><a class="dropdown-item" href="#">Action</a></li>
@@ -50,24 +50,37 @@
                 </li>
               </ul>
             </div>
+            <button id="toggle-btn" class="btn bg-custom-dark">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+            </button>
           </div>
-      </nav>
+        </nav>
     </header>
     <main>
-      <!-- Search bar -->
-      <section class="container p-5 justify-content-center search-bar">
-        <form class="input-group">
-          <div class="form-outline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          </div>
-          <button id="search-btn" type="submit" class="btn bg-custom-dark">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </section>
+        <!-- Search bar -->
+        <section class="container p-5 justify-content-center search-bar">
+          <form class="input-group">
+            <div class="form-outline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <button id="search-btn" type="submit" class="btn bg-custom-dark">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </section>
     </main>
-    <footer>
-
+    <!-- my footer with github link and copyright that will update automatically in base to the current year -->
+    <footer class="bg-custom-dark">
+      <small>
+        Copyright ©
+        <script>
+            document.write(new Date().getFullYear())
+        </script>
+          Carmine P.
+      </small>
+      <a id="github-link" href="https://github.com/maxthor500" target="_blank">
+          <i class="fa-brands fa-square-github"></i>
+      </a>
     </footer>
     
     <!-- CDN Bootstrap Popper and JS -->
