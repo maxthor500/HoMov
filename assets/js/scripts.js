@@ -9,19 +9,41 @@ const dropdownMenu = document.getElementById("dropdown-menu");
 // initialize variable for the show table
 const bodyTable = document.getElementById("body-table");
 
+
 // dark mode function
 const darkModeClass = (arr) => {
     arr.map((element) => {
-        element.classList.toggle("dark-mode");
+        if (element) {
+            element.classList.toggle("dark-mode");
+        }
     });
 };
 
+const darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu];
+
+// Get the value of the "dark" item from the local storage
+let setDarkMode = localStorage.getItem('dark-mode');
+
 // dark mode event listener
-toggleBtn.addEventListener("click", (e) => {
-    let darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu];
-    darkModeClass(darkModeElements);
-    e.preventDefault();
+toggleBtn.addEventListener("click", () => {
+     // Get the value of the "dark" item from the local storage on every click
+     setDarkMode = localStorage.getItem('dark-mode');
+
+     if (setDarkMode !== "on") {
+         darkModeClass(darkModeElements);
+         // Set the value of the item to "on" when dark mode is on
+         setDarkMode = localStorage.setItem('dark-mode', 'on');
+     } else {
+         darkModeClass(darkModeElements);
+         // Set the value of the item to "null" when dark mode if off
+         setDarkMode = localStorage.setItem('dark-mode', null);
+     }
 });
+
+// Check dark mode is on or off on page reload
+if (setDarkMode === 'on') {
+    darkModeClass(darkModeElements);
+}
 
 // loadXMLDoc from https://stackoverflow.com/questions/24070741/getelementsbytagname-comes-up-undefined
 const loadXMLDoc = (filename) => {
