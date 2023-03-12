@@ -93,6 +93,8 @@ const pushMovies = () => {
     }
 }
 
+pushMovies();
+
 // loop in the array and render the table rows
 const showTable = (arr) => {
     for (let key in arr) {
@@ -100,10 +102,6 @@ const showTable = (arr) => {
         rowMovie.renderTableRow();
     }
 }
-
-// load the table with all the movies when the page is load
-pushMovies();
-showTable(movies);
 
 // helped function to filter the movies
 const filterTable = (searchFor) => {
@@ -129,12 +127,18 @@ const filterTable = (searchFor) => {
         } 
     }
 
+    
+
     // remove the previous table from the DOM
     Movie.cleanTable()
 
     // render the table with the user input results
     if(results.length == 0) {
-        $("#movies-table").after("<div id='no-found' class='container'>No Results Found</div>");
+        if ($("#no-found").length) {
+            return;
+        } else {
+            $("#movies-table").after("<div id='no-found' class='container'>No Results Found</div>");
+        }    
     } else {
         showTable(results)
     }
@@ -143,7 +147,6 @@ const filterTable = (searchFor) => {
 // when click the search button the table filters the user input
 $("#search-btn").on("click", function(e){
     const searchFor = $("#search-input").val().toLowerCase();
-    showTable(movies);
     filterTable(searchFor);
     e.preventDefault();
 });

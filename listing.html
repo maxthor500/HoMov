@@ -12,7 +12,8 @@
     <script src="https://kit.fontawesome.com/a59dc0b4f5.js" crossorigin="anonymous"></script>
     <!-- custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Movie Rent</title>
+    <link rel="stylesheet" href="assets/css/listing.css">
+    <title>HOMOV</title>
 </head>
 <body>
     <header>
@@ -31,22 +32,17 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
               <!-- empty div to center the list using and toggler at the end justify-content-between -->
               <div></div>
-              <ul class="navbar-nav mb-2 mb-lg-0">
+              <ul id="navbar-menu" class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Genre
+                    Movies
                   </a>
                   <ul id="dropdown-menu" class="dropdown-menu bg-custom">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+
                   </ul>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Book</a>
                 </li>
@@ -60,18 +56,7 @@
         </nav>
     </header>
     <main>
-        <!-- Search bar -->
-        <section class="container p-5 justify-content-center search-bar">
-          <form class="input-group">
-            <div class="form-outline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            </div>
-            <button id="search-btn" type="submit" class="btn bg-custom">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </section>
-        <section id="list-movies" class="container-fluid"></section>
+        
                   <!-- <img id="movie-cover"  /> -->
           <!-- <video width="500" height="300" controls>
             <source id="movie-trailer" src="./assets/videos/die_hard_trailer.mp4" type="video/mp4">
