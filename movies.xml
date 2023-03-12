@@ -3,7 +3,7 @@
   <MOVIE>
     <ID>001</ID>
     <GENRE>Drama</GENRE>
-    <ACTOR>Samuel L. Jackson</ACTOR>
+    <ACTOR>Samuel Jackson</ACTOR>
     <NAME><![CDATA[<a id="1" href="listing.html?myMovie=000" target="_blank" >Coach Carter</a>]]></NAME>
     <IMAGE>./assets/images/coach_carter_cover.webp</IMAGE>
     <PLOT>
@@ -60,7 +60,7 @@
     <ID>004</ID>
     <GENRE>Comedy</GENRE>
     <ACTOR>Adam Sandler</ACTOR>
-    <NAME><![CDATA[<a id="4" href="listing.html?myMovie=003" target="_blank" >The Longest Yard</a>]]></NAME>
+    <NAME><![CDATA[<a id="4" href="listing.html?myMovie=003" target="_blank" >Longest Yard</a>]]></NAME>
     <IMAGE>./assets/images/the_longest_yard.jpg</IMAGE>
     <PLOT>
          Paul "Wrecking" Crewe was a revered football superstar back in his day, but that time has since faded. 

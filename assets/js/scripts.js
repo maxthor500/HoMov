@@ -36,18 +36,6 @@ const loadXMLDoc = (filename) => {
 
 const xmlDoc = loadXMLDoc("./movies.xml");
 
-// get all the images in the XML file in an array
-const images = new Array();
-
-for (let i=0; i<4; i++) {
-    images[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("IMAGE")[i].childNodes[0]);
-}
-
-const videos = new Array();
-for (let i=0; i<4; i++) {
-    videos[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("VIDEO")[i].childNodes[0]);
-}
-
 // class object to add the movies in an array
 class Movie {
     constructor(id, genre, actor, name, location, price) {
@@ -117,21 +105,26 @@ const showTable = (arr) => {
 pushMovies();
 showTable(movies);
 
-// when click the search button the table filters the user input
-$("#search-btn").on("click", function(e){
-    showTable(movies);
-
-    const searchFor = $("#search-input").val().toLowerCase();
+// helped function to filter the movies
+const filterTable = (searchFor) => {
     let results = [];
 
     for(let i=0; i<movies.length;i++) {
         // get the movie's name from the anchor tag
         const nameMovie = document.getElementById(String(i+1)).textContent.toLocaleLowerCase();
-        
+
+        // split actor and title to allow the research also just one word
+        const actorSplitted = movies[i].actor.toLocaleLowerCase().split(' ');
+        const nameSplitted = nameMovie.split(' ');
+
         if(movies[i].genre.toLowerCase().indexOf(searchFor) > -1 ||
                 movies[i].actor.toLowerCase().indexOf(searchFor) > -1 || 
                 movies[i].location.toLowerCase().indexOf(searchFor) > -1 ||
-                nameMovie.indexOf(searchFor) > -1) {
+                nameMovie.indexOf(searchFor) > -1 ||
+                actorSplitted[0].indexOf(searchFor) > -1 ||
+                actorSplitted[1].indexOf(searchFor) > -1 ||
+                nameSplitted[0].indexOf(searchFor) > -1 ||
+                nameSplitted[1].indexOf(searchFor) > -1) {
             results.push(movies[i])
         } 
     }
@@ -145,7 +138,14 @@ $("#search-btn").on("click", function(e){
     } else {
         showTable(results)
     }
-    e.preventDefault()
+}
+
+// when click the search button the table filters the user input
+$("#search-btn").on("click", function(e){
+    const searchFor = $("#search-input").val().toLowerCase();
+    showTable(movies);
+    filterTable(searchFor);
+    e.preventDefault();
 });
 
 // when press enter in the input the click event of the search button is triggered
@@ -156,14 +156,25 @@ $('#search-input').keypress(function (e) {
         return false;  
     }
 }); 
-  
 
+// append to the dropdown menu every movie
+for(let i=0; i<movies.length; i++) {
+    $('#dropdown-menu').append("<li>" + movies[i].name + "</li>");
+    $('#' + String(i+1)).addClass("dropdown-item");
+}
 
+// manage the URL
+let v1 = window.location.search;
+let lastChar = v1.substring(v1.length - 1); // => "1"
+let choice = parseInt(lastChar);
 
-// let v1 = window.location.search;
-// let lastChar = v1.substr(v1.length - 1); // => "1"
-// let choice = parseInt(lastChar);
+// get all the images in the XML file in an array
+const images = new Array();
+const videos = new Array();
+const plots = new Array();
 
-
-
-// $("#movie-cover").attr("src", images[3]);
+for (let i=0; i<4; i++) {
+    images[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("IMAGE")[i].childNodes[0]);
+    videos[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("VIDEO")[i].childNodes[0]);
+    plots[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("PLOT")[i].childNodes[0]);
+}
