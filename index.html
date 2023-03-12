@@ -61,7 +61,7 @@
         <section class="container p-5 justify-content-center search-bar">
           <form class="input-group">
             <div class="form-outline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             </div>
             <button id="search-btn" type="submit" class="btn bg-custom">
               <i class="fa-solid fa-magnifying-glass"></i>
@@ -69,7 +69,7 @@
           </form>
         </section>
         <section id="list-movies" class="container-fluid justify-content-center">
-          <table class="table table-bordered table-hover">
+          <table id="movies-table" class="table table-bordered">
             <thead>
                 <tr>
                   <th scope="col">Id</th>

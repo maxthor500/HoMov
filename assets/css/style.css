@@ -108,11 +108,16 @@ footer
     padding: .3rem;
 }
 
-.table 
+.table,
+td>a
 {
     color: #D6A419;
 }
 
-td>a {
+#no-found {
+    width: 100%;
     color: #D6A419;
+    text-align: center;
 }
+
+
