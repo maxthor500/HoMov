@@ -27,3 +27,21 @@
 {   
     font-size: 1em;
 }
+
+/* buttons next and previous */
+.btn-custom
+{   
+    width: 2rem;
+    text-transform: uppercase;
+    color: #D6A419;
+}
+
+.btn-custom:hover
+{
+    color: #E10600;
+}
+
+.title
+{
+    width: 100%;
+}

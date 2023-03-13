@@ -57,10 +57,14 @@
     </header>
     <main>
         <section class="wrapper">
-            <!-- movie title -->
-            <h2 id="movie-title" class="heading text-center m-3">
-                
-            </h2>
+            <div class="row title">
+                <button id="prev-btn" type="button" class="col btn btn-custom" onclick="prevMovie()"><i class="fa-solid fa-arrow-left"></i> prev</button>
+                <!-- movie title -->
+                <h2 id="movie-title" class="heading col text-center m-3">
+                    
+                </h2>
+                <button id="next-btn" type="button" class="col btn btn-custom" onclick="nextMovie()">next <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
             <!-- container image, plot and video -->
             <div class="container">
                 <div class="row">
@@ -83,10 +87,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="container">
-            <!-- <button type="button" class="btn btn-primary btn-lg">Large button</button>
-            <button type="button" class="btn btn-secondary btn-lg">Large button</button> -->
         </section>
     </main>
     <!-- my footer with github link and copyright that will update automatically in base to the current year -->
