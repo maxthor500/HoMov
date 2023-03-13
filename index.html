@@ -21,7 +21,7 @@
           <div class="container-fluid">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-              <img src="assets/images/logo_homov.png" alt="logo homov" height="50rem" width="45rem" />
+              <img src="assets/images/logo_homov.png" alt="logo HoMov" height="50rem" width="45rem" />
             </a>
             <!-- navbar toggler to collapse the navbar on mobile -->
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,10 +87,12 @@
     <!-- my footer with github link and copyright that will update automatically in base to the current year -->
     <footer id="footer" class="bg-custom">
       <small>
-        Copyright ©
-        <script>
-            document.write(new Date().getFullYear())
-        </script>
+          Copyright ©
+          <span id="current-year">
+            <script>
+              document.getElementById("current-year").textContent = new Date().getFullYear()
+            </script>
+          </span>  
           Carmine P.
       </small>
       <a id="github-link" href="https://github.com/maxthor500" target="_blank">

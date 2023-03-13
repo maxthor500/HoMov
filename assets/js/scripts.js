@@ -5,6 +5,7 @@ const navbar = document.getElementById("navbar");
 const searchBtn = document.getElementById("search-btn");
 const footer = document.getElementById("footer");
 const dropdownMenu = document.getElementById("dropdown-menu");
+const card = document.getElementsByClassName("card");
 
 // initialize variable for the show table
 const bodyTable = document.getElementById("body-table");
@@ -19,7 +20,12 @@ const darkModeClass = (arr) => {
     });
 };
 
+// element which the dark mode is applied
 const darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu];
+
+for (let i=0; i<card.length; i++) {
+    darkModeElements.push(card[i]);
+}
 
 // Get the value of the "dark" item from the local storage
 let setDarkMode = localStorage.getItem('dark-mode');
@@ -148,19 +154,14 @@ const filterTable = (searchFor) => {
             results.push(movies[i])
         } 
     }
-
     
-
     // remove the previous table from the DOM
     Movie.cleanTable()
+    $("#no-found").remove();
 
     // render the table with the user input results
     if(results.length == 0) {
-        if ($("#no-found").length) {
-            return;
-        } else {
-            $("#movies-table").after("<div id='no-found' class='container'>No Results Found</div>");
-        }    
+        $("#movies-table").after("<div id='no-found' class='container'>No Results Found</div>");   
     } else {
         showTable(results)
     }
@@ -189,11 +190,11 @@ for(let i=0; i<movies.length; i++) {
 }
 
 // manage the URL
-let v1 = window.location.search;
-let lastChar = v1.substring(v1.length - 1); // => "1"
-let choice = parseInt(lastChar);
+const v1 = window.location.search;
+const lastChar = v1.substring(v1.length - 1); // => "1"
+const choice = parseInt(lastChar);
 
-// get all the images in the XML file in an array
+// get all the images, videos and plot in the XML file in an array
 const images = new Array();
 const videos = new Array();
 const plots = new Array();
@@ -203,3 +204,25 @@ for (let i=0; i<4; i++) {
     videos[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("VIDEO")[i].childNodes[0]);
     plots[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("PLOT")[i].childNodes[0]);
 }
+
+const swapImage = () => {
+    const title = document.getElementById("movie-title");
+    title.innerHTML = movies[choice].name;
+    title.firstChild.style.textDecoration = "none";
+    title.firstChild.style.color = "#D6A419";
+    const img = document.getElementById("movie-cover");
+    img.src = images[choice];
+    const altAttribute = images[choice].split("/")[3];
+    img.setAttribute("alt", altAttribute)
+    const plot = document.getElementById("plot");
+    plot.textContent = plots[choice];
+    const video = document.getElementById("movie-trailer");
+    const source = document.createElement('source');
+    source.setAttribute("src", videos[choice]);
+    source.setAttribute('type', 'video/mp4');
+    video.appendChild(source);
+    video.play();
+}
+
+swapImage()
+

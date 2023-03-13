@@ -1,0 +1,29 @@
+/* style title */
+#movie-title 
+{
+    margin-top: 1rem; 
+    text-align: center;
+}
+
+/* style cards image and plots */
+.card 
+{   
+    background: whitesmoke;
+    color: #D6A419;
+    border: none;
+}
+
+.card.dark-mode
+{
+    background: #2E4159;
+    color: #D6A419;
+}
+
+.card-img-top {
+    width: 15rem;
+}
+
+#plot
+{   
+    font-size: 1em;
+}

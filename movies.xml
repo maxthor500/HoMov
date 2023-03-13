@@ -4,7 +4,7 @@
     <ID>001</ID>
     <GENRE>Drama</GENRE>
     <ACTOR>Samuel Jackson</ACTOR>
-    <NAME><![CDATA[<a id="1" href="listing.html?myMovie=000" target="_blank" >Coach Carter</a>]]></NAME>
+    <NAME><![CDATA[<a id="1" href="listing.html?myMovie=000">Coach Carter</a>]]></NAME>
     <IMAGE>./assets/images/coach_carter_cover.webp</IMAGE>
     <PLOT>
           In 1999, Ken Carter accepts the job of basketball coach for his old high school in a poor area of Richmond, CA. 
@@ -25,8 +25,8 @@
     <ID>002</ID>
     <GENRE>Crime</GENRE>
     <ACTOR>Quentin Tarantino</ACTOR>
-    <NAME><![CDATA[<a id="2" href="listing.html?myMovie=001" target="_blank" >Reservoir Dogs</a>]]></NAME>
-    <IMAGE>./assets/images/reservoir-dogs_cover.png</IMAGE>
+    <NAME><![CDATA[<a id="2" href="listing.html?myMovie=001">Reservoir Dogs</a>]]></NAME>
+    <IMAGE>./assets/images/reservoir_dogs_cover.png</IMAGE>
     <PLOT>
          Six thugs, who are strangers to each other, are hired by a crime boss, Joe Cabot, to carry out a diamond robbery. 
          Right at the outset, they are given false names with the intention that they won't get too close and will concentrate on the job instead. 
@@ -43,7 +43,7 @@
     <ID>003</ID>
     <GENRE>Action</GENRE>
     <ACTOR>Bruce Willis</ACTOR>
-    <NAME><![CDATA[<a id="3" href="listing.html?myMovie=002" target="_blank" >Die Hard</a>]]></NAME>
+    <NAME><![CDATA[<a id="3" href="listing.html?myMovie=002">Die Hard</a>]]></NAME>
     <IMAGE>./assets/images/die_hard_cover.jpg</IMAGE>
     <PLOT>
          NYPD cop John McClane goes on a Christmas vacation to visit his wife Holly in Los Angeles where she works for the Nakatomi Corporation. 
@@ -60,7 +60,7 @@
     <ID>004</ID>
     <GENRE>Comedy</GENRE>
     <ACTOR>Adam Sandler</ACTOR>
-    <NAME><![CDATA[<a id="4" href="listing.html?myMovie=003" target="_blank" >Longest Yard</a>]]></NAME>
+    <NAME><![CDATA[<a id="4" href="listing.html?myMovie=003">Longest Yard</a>]]></NAME>
     <IMAGE>./assets/images/the_longest_yard.jpg</IMAGE>
     <PLOT>
          Paul "Wrecking" Crewe was a revered football superstar back in his day, but that time has since faded. 
