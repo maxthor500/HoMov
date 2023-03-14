@@ -8,6 +8,7 @@ const images = new Array();
 const videos = new Array();
 const plots = new Array();
 
+// populate the arrays images, video and plots
 for (let i=0; i<4; i++) {
     images[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("IMAGE")[i].childNodes[0]);
     videos[i] = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("VIDEO")[i].childNodes[0]);
@@ -15,7 +16,8 @@ for (let i=0; i<4; i++) {
 }
 
 // function to swap the movie's data depending on the URL
-const swapMovieData = () => {
+const showMovieData = () => {
+    $("#listing").toggleClass("d-none");
     const title = document.getElementById("movie-title");
     title.innerHTML = movies[choice].name;
     title.firstChild.style.textDecoration = "none";
@@ -74,7 +76,22 @@ const prevMovie = () => {
     }
 }
 
+// toggle class display: none
+const displayForm = (e) => {
+    // get the current url
+    const currentHref = window.location.href;
+    // divide the url removing the last char
+    const removeLastChar = currentHref.split("?");
+    if (removeLastChar[1] === "booking") {
+        $("#booking").toggleClass("d-none");
+    }
+}
+
 // load the movie's data when the page loads
 window.onload = () => {
-    swapMovieData();
+    if (Number.isInteger(choice)) {
+        showMovieData();
+    }
+
+    displayForm();
 }
