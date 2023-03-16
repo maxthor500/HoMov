@@ -45,3 +45,45 @@
 {
     width: 100%;
 }
+
+/* style form booking */
+#booking
+{
+    color: #D6A419;
+    margin-bottom: 2.5rem;
+}
+
+#form-group 
+{
+    margin-bottom: 1.2rem;
+}
+
+label
+{
+    margin: 1rem 0 0.3rem;
+}
+
+#emailHelp {
+    font-size: .8rem;
+    color: aliceblue;
+}
+
+#date-picker 
+{
+    width: 8.5rem;
+}
+
+#btn-submit
+{   
+    margin: 1rem;
+    text-align: center;
+}
+
+#btn-book
+{
+    background-color: #D6A419;
+    color: #2E4159;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .5ch;
+}

@@ -6,6 +6,7 @@ const searchBtn = document.getElementById("search-btn");
 const footer = document.getElementById("footer");
 const dropdownMenu = document.getElementById("dropdown-menu");
 const card = document.getElementsByClassName("card");
+const book = document.getElementById("booking");
 
 // initialize variable for the show table
 const bodyTable = document.getElementById("body-table");
@@ -21,7 +22,7 @@ const darkModeClass = (arr) => {
 };
 
 // element which the dark mode is applied
-const darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu];
+const darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu, book];
 
 for (let i=0; i<card.length; i++) {
     darkModeElements.push(card[i]);
@@ -189,3 +190,12 @@ for(let i=0; i<movies.length; i++) {
     $('#' + String(i+1)).addClass("dropdown-item");
 }
 
+// set the cookies with the Book link is clicked
+const setMovieIdCookie = () => {
+    // delete older cookies
+    document.cookie = "movie_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    const currentURL = window.location.search;
+    const movieId = parseInt(currentURL.substring(currentURL.length - 1));
+    // save the last character of the URL in the cookies
+    document.cookie = "movie_id=" + movieId;
+}

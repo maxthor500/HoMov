@@ -77,13 +77,47 @@ const prevMovie = () => {
 }
 
 // toggle class display: none
-const displayForm = (e) => {
+const displayForm = () => {
+    addOptionsToForm();
     // get the current url
     const currentHref = window.location.href;
     // divide the url removing the last char
     const removeLastChar = currentHref.split("?");
     if (removeLastChar[1] === "booking") {
         $("#booking").toggleClass("d-none");
+    }
+}
+
+// helper function from https://www.w3schools.com/js/js_cookies.asp
+const getCookie = (cookieName) => {
+    let name = cookieName + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+// add the movies to the Select form
+const addOptionsToForm = () => {
+    const movieIdCookie = parseInt(getCookie("movie_id"));
+
+    if (!Number.isInteger(movieIdCookie)) {
+        $('#movie-options').append("<option selected>Select a movie</option>");
+    } else {
+        $('#movie-options').append("<option value='" + movieIdCookie + "selected'>" + movies[movieIdCookie].name + "</option>");
+    }
+    for (let i=0; i<4; i++) {
+        if (i != movieIdCookie) {
+            $('#movie-options').append("<option value='" + i + "'>" + movies[i].name + "</option>");
+        }
     }
 }
 
