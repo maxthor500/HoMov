@@ -95,7 +95,7 @@
               <legend class="text-center"><i class="fa-solid fa-ticket"></i> Book a Movie</legend>
               <div class="form-group mt-2">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                   <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group">
@@ -106,7 +106,7 @@
               </div>
               <div class="form-group">
                   <label for="data-picker">Date</label>
-                  <input type="date" id="date-picker" name="date" class="form-control" required>
+                  <input type="datetime-local" id="date-picker" name="date-picker" class="form-control" required>
               </div>
               <div id="btn-submit">
                 <button id="btn-book" type="submit" class="btn" onclick="confirm()">Submit</button>
