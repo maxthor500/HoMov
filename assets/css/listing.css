@@ -65,7 +65,7 @@ label
 
 #emailHelp {
     font-size: .8rem;
-    color: aliceblue;
+    color: #D6A419;
 }
 
 #date-picker 
@@ -82,8 +82,15 @@ label
 #btn-book
 {
     background-color: #D6A419;
+    padding: 1rem;
     color: #2E4159;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: .5ch;
+}
+
+#btn-book:hover
+{
+    padding: 1.2rem;
+    color: #E10600;
 }

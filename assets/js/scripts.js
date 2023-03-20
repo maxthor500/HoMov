@@ -107,8 +107,10 @@ class Movie {
 const movies = new Array();
 
 const pushMovies = () => {
+    // get the elements with tag MOVIE in the file XML
+    const movieTag = xmlDoc.getElementsByTagName('MOVIE');
     // loop in the xml doc
-    for (let i=0; i<4; i++) {
+    for (let i=0; i<movieTag.length; i++) {
         let id = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("ID")[i].childNodes[0]);
         let genre = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("GENRE")[i].childNodes[0]);
         let actor = new XMLSerializer().serializeToString(xmlDoc.getElementsByTagName("ACTOR")[i].childNodes[0]);
@@ -122,6 +124,7 @@ const pushMovies = () => {
     }
 }
 
+// populate the array
 pushMovies();
 
 // loop in the array and render the table rows
@@ -144,6 +147,7 @@ const filterTable = (searchFor) => {
         const actorSplitted = movies[i].actor.toLocaleLowerCase().split(' ');
         const nameSplitted = nameMovie.split(' ');
 
+        // if a use input actor, location, movies it will push in the array results
         if(movies[i].genre.toLowerCase().indexOf(searchFor) > -1 ||
                 movies[i].actor.toLowerCase().indexOf(searchFor) > -1 || 
                 movies[i].location.toLowerCase().indexOf(searchFor) > -1 ||

@@ -90,51 +90,29 @@
             </div>
         </section>
         <!-- form booking section -->
-        <section id="booking" class="container d-none bg-custom mt-5 p-5">
-            <form>
+        <section id="booking" class="container d-none bg-custom mt-4 p-5 rounded">
+            <form id="booking-form" name="booking-form" action="form.php" method="POST">
               <legend class="text-center"><i class="fa-solid fa-ticket"></i> Book a Movie</legend>
               <div class="form-group mt-2">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                   <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group">
-                  <label for="movie-book">Movie</label>
-                  <select id="movie-options" class="form-select" aria-label="Default select example">
+                  <label for="movie-options">Movie</label>
+                  <select id="movie-options" class="form-select" aria-label="Default select example" required>
 
                   </select>
               </div>
               <div class="form-group">
-                  <label for="datap-icker">Date</label>
-                  <input type="date" id="date-picker" name="date" class="form-control" >
+                  <label for="data-picker">Date</label>
+                  <input type="date" id="date-picker" name="date" class="form-control" required>
               </div>
               <div id="btn-submit">
-                <button id="btn-book" type="submit" class="btn">Submit</button>
+                <button id="btn-book" type="submit" class="btn" onclick="confirm()">Submit</button>
               </div>
             </form>
         </section>
-        <!-- <section id="contact-form" class="container d-none">
-          <form>
-              <fieldset>
-                  <legend>Send Me a Request</legend>
-                  <div class="form-item">
-                      <label for="user-name">Name</label>
-                      <input class="form-input" id="user-name" name="user_name" placeholder="Enter name" required>
-                  </div>
-                  <div class="form-item">
-                      <label for="email">Email address</label>
-                      <input class="form-input" type="email" id="email" name="user_email" placeholder="Enter email" required />
-                  </div>
-                  <div class="form-item">
-                      <label for="textarea">Request</label>
-                      <textarea class="form-input" id="textarea" name="info_request" rows="5" placeholder="Insert your request here" required></textarea>
-                  </div>
-                  <div class="form-item">
-                      <input type="submit" id="button" class="btn send-btn" value="Send Email" />
-                  </div>
-              </fieldset>
-          </form>
-        </section> -->
     </main>
     <!-- my footer with github link and copyright that will update automatically in base to the current year -->
     <footer id="footer" class="bg-custom">
