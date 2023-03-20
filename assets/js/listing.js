@@ -136,9 +136,9 @@ const confirm = () => {
     const datePicker = new Date($("#date-picker").val());
     const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const emailName = document.getElementById("email").value;
-    const movieOptions = document.getElementById("movie-options").value;
-    const movieSelected = $(movies[movieOptions].name)[0].innerHTML;
-    console.log(movieSelected)
+    const movieOptions = $("#movie-options option:selected").val();
+    const optionId = Array.from(movieOptions)[0];
+    const movieSelected = $(movies[optionId].name)[0].innerHTML;
     createCookie("movie_booked", movieSelected, datePicker);
     createCookie("date_booked", datePicker.toLocaleDateString("en-GB", options), datePicker);
     createCookie("email_booked", emailName, datePicker);

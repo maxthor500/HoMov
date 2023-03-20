@@ -1,6 +1,6 @@
 <?php
 // add data to table
-$serverName = "127.0.0.1:3307"; 
+$serverName = $_SERVER['SERVER_PORT'] == 3306 ? "localhost" : "127.0.0.1:3307"; 
 $username = "root"; 
 $password = ""; 
 $dbname = "test"; 
@@ -17,7 +17,7 @@ if($db === false){
 $movie = $_COOKIE['movie_booked'];
 $email = $_COOKIE['email_booked'];
 $datetime = $_COOKIE['date_booked'];
- 
+
 // Create SQL query
 $sql = "INSERT INTO movie_bookings (movie, email, datetime) VALUES ('$movie', '$email', '$datetime');";
 if(mysqli_query($db, $sql)){
