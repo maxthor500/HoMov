@@ -51,7 +51,7 @@ const nextMovie = () => {
     }
     
     // return to the first movie when you are on the last movie
-    if (lastCharacter === 3) {
+    if (lastCharacter === (movies.length-1)) {
         window.location.href = removeLastChar + 0;
     }
 }
