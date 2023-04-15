@@ -20,9 +20,9 @@
         }
         
         // Get the cookie data
-        $firstName = $_POST['firstName'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $firstName = $_POST['firstName-signup'];
+        $email = $_POST['email-signup'];
+        $password = $_POST['password-signup'];
         $repeat_password = $_POST['repeat-password'];
 
 

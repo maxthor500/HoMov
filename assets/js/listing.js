@@ -78,15 +78,25 @@ const prevMovie = () => {
 
 // toggle class display: none
 const displayForm = () => {
-    addOptionsToForm();
+    console.log("start")
     // get the current url
     const currentHref = window.location.href;
     // divide the url removing the last char
     const removeLastChar = currentHref.split("?");
+
+    console.log(removeLastChar[1])
     if (removeLastChar[1] === "booking") {
+        addOptionsToForm();
         $("#booking").toggleClass("d-none");
+    } else if (removeLastChar[1] === "login") {
+        $("#login").toggleClass("d-none");
+    } else if (removeLastChar[1] === "signup") {
+        $("#signup").toggleClass("d-none");
     }
+    console.log("end")
+
 }
+
 
 // helper function from https://www.w3schools.com/js/js_cookies.asp
 const getCookie = (cookieName) => {
@@ -120,15 +130,6 @@ const addOptionsToForm = () => {
             $('#movie-options').append("<option value='" + i + "'>" + movies[i].name + "</option>");
         }
     }
-}
-
-// load the movie's data when the page loads
-window.onload = () => {
-    if (Number.isInteger(choice)) {
-        showMovieData();
-    }
-
-    displayForm();
 }
 
 // function to confirm the form took from the course 
@@ -167,4 +168,12 @@ const createCookie = (name,value,days) => {
     document.cookie = encodeURI(name) + "=" + 
                         encodeURI(value) + 
                         expires + "; path=/";
+}
+
+window.onload = () => {
+    if (Number.isInteger(choice)) {
+        showMovieData();
+    }
+    console.log("page loaded")
+    displayForm();
 }
