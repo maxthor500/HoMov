@@ -20,18 +20,14 @@
         }
         
         // Get the cookie data
-        $firstName = $_POST['firstName-signup'];
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
         $email = $_POST['email-signup'];
-        $password = $_POST['password-signup'];
+        $password = $_POST['new-password'];
         $repeat_password = $_POST['repeat-password'];
 
 
-        if ($repeat_password != $password) {
-            array_push($errors, "The two passwords do not match");
-        }
-        
-        //if there are no errors
-        if (count($errors) == 0) {
+        if ($repeat_password == $password) {
             // encrypt the password before saving in the database
             $password = md5($password);
 
@@ -44,11 +40,7 @@
             } else{
                 echo "ERROR: Could not save data. " . mysqli_error($db);
             }
-
-            $_SESSION['email'] = $email;
-            $_SESSION['success'] = "You are now logged in";
         }
-        
         
         header("Refresh: 5; url=./index.html");
     
