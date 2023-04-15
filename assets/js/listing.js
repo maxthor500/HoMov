@@ -177,3 +177,14 @@ window.onload = () => {
     console.log("page loaded")
     displayForm();
 }
+
+// function to prevent form submission if the passwords do not match
+$('#submit-signup').click(function(){
+    const password = $('#new-password').val();
+    const repeatPassword = $('#repeat-password').val();
+    if(password !== repeatPassword){
+        $("#errors").text('Passwords do not match');
+        return false;
+    }
+    // submit form
+});

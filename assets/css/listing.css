@@ -96,3 +96,8 @@ label
     padding: 1.2rem;
     color: #E10600;
 }
+
+#errors {
+    margin-top: .5rem;
+    color: #E10600;
+}
