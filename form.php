@@ -1,7 +1,7 @@
 <?php
 $errors = ''; 
 
-// add data to table
+// server and db 
 $serverName = $_SERVER['SERVER_PORT'] == 3306 ? "localhost" : "127.0.0.1:3307"; 
 $username = "root"; 
 $password = ""; 

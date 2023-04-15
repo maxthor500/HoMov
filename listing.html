@@ -46,6 +46,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="listing.html?booking" onclick="setMovieIdCookie()">Book</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="listing.html?login">Login</a>
+                </li>
               </ul>
               <!-- Dark/Light mode toggler -->
               <button id="toggle-btn" class="btn bg-custom">
@@ -108,10 +111,74 @@
                   <label for="data-picker">Date</label>
                   <input type="datetime-local" id="date-picker" name="date-picker" class="form-control" required>
               </div>
-              <div id="btn-submit">
-                <button id="btn-book" type="submit" class="btn" onclick="confirm()">Submit</button>
+              <div class="btn-submit">
+                <button id="btn-book" type="submit" class="btn btn-book" onclick="confirm()">Submit</button>
               </div>
             </form>
+        </section>
+        <section id="login-form" class="container d-none bg-custom mt-4 p-5 rounded">
+          <form id="login-form" name="login-form" action="login.php" method="POST">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="terms">
+              <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+            </div>
+            <div class="btn-submit">
+              <button type="submit" class="btn btn-book">Submit</button>
+            </div>
+          </form>
+          <!-- redirect to signup -->
+          <div class="col-sm">
+            <p class="text-center">
+                not Registered?
+                <a type="link" href="listing.html?signup">Sign Up <i class="fas fa-arrow-alt-circle-right"></i></a>
+            </p>
+          </div>
+        </section>
+        <section id="signup-form" class="container d-none bg-custom mt-4 p-5 rounded">
+          <form id="signup-form" name="signup-form" action="signup.php" method="POST">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+              <label for="repeat-password">Repeat your password</label>
+              <input type="password" class="form-control" id="repeat-password" placeholder="Enter your password">
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="terms">
+              <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+            </div>
+            <div class="btn-submit">
+              <button type="submit" class="btn btn-book">Submit</button>
+            </div>
+          </form>
+          <!-- redirect to login -->
+          <div class="col-sm">
+            <p class="text-center">
+                Already Registered?
+                <a type="link" href="listing.html?login">Login <i class="fas fa-arrow-alt-circle-right"></i></a>
+            </p>
+          </div>
         </section>
     </main>
     <!-- my footer with github link and copyright that will update automatically in base to the current year -->

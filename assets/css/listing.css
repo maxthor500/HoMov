@@ -73,13 +73,13 @@ label
     width: 11rem;
 }
 
-#btn-submit
+.btn-submit
 {   
     margin: 1rem;
     text-align: center;
 }
 
-#btn-book
+.btn-book
 {
     background-color: #D6A419;
     padding: 1rem;
@@ -89,7 +89,7 @@ label
     letter-spacing: .5ch;
 }
 
-#btn-book:hover
+.btn-book:hover
 {
     padding: 1.2rem;
     color: #E10600;
