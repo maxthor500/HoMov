@@ -7,6 +7,8 @@ const footer = document.getElementById("footer");
 const dropdownMenu = document.getElementById("dropdown-menu");
 const card = document.getElementsByClassName("card");
 const book = document.getElementById("booking");
+const login = document.getElementById("login");
+const signup = document.getElementById("signup");
 
 // initialize variable for the show table
 const bodyTable = document.getElementById("body-table");
@@ -22,7 +24,7 @@ const darkModeClass = (arr) => {
 };
 
 // element which the dark mode is applied
-const darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu, book];
+const darkModeElements = [body, navbar, toggleBtn, searchBtn, footer, dropdownMenu, book, login, signup];
 
 for (let i=0; i<card.length; i++) {
     darkModeElements.push(card[i]);

@@ -123,4 +123,8 @@ td>a
     text-align: center;
 }
 
-
+#terms-login,
+#terms-signup
+{
+    margin-top: 1.4rem;
+}

@@ -47,7 +47,9 @@
 }
 
 /* style form booking */
-#booking
+#booking,
+#login,
+#signup
 {
     color: #D6A419;
     margin-bottom: 2.5rem;
