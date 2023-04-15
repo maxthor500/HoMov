@@ -22,10 +22,11 @@ if (empty ($errors))
 	// Get the cookie data
 	$movie = $_COOKIE['movie_booked'];
 	$email = $_POST['email'];
-	$datetime = date("d/m/Y H:i", strtotime($_POST['date-picker']));
+	$datePicker = $_POST['date-picker'];
+	$datetime = date("d/m/Y H:i:s", strtotime($datePicker));
 
 	// Create SQL query
-	$sql = "INSERT INTO movie_bookings (movie, email, datetime) VALUES ('$movie', '$email', '$datetime');";
+	$sql = "INSERT INTO movie_bookings (movie, datetime, email) VALUES ('$movie', '$datePicker', '$email');";
 	if(mysqli_query($db, $sql)){
 		echo nl2br("<p style='font-size:2vw;'>Your booking for " .  $datetime . " of the " .  $movie . " is successfully recorded</p>");
 	} else{
