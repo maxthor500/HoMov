@@ -111,7 +111,10 @@ footer
 /* style the table */
 
 .table,
-td>a
+td>a,
+.heading,
+#captcha-answer-book,
+#captcha-answer-signup
 {
     color: #D6A419;
 }

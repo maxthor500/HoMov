@@ -111,6 +111,11 @@
                   <label for="data-picker">Date</label>
                   <input type="datetime-local" id="date-picker" name="date-picker" class="form-control" required>
               </div>
+              <div class="form-check text-center">
+                <span id="captcha-answer-book"></span>
+                <input type="text" id="captcha-input-book" required/>
+              </div>
+              <input type="text" name="antispybot" style="display:none" />
               <div class="btn-submit">
                 <button id="btn-book" type="submit" class="btn btn-book" onclick="confirm()">Submit</button>
               </div>
@@ -135,6 +140,7 @@
               <input type="checkbox" class="form-check-input" id="terms-login" required>
               <label class="form-check-label" for="terms-login">I agree to the terms and conditions</label>
             </div>
+            <input type="text" name="antispybot" style="display:none" />
             <div class="btn-submit">
               <button type="submit" class="btn btn-book">Submit</button>
             </div>
@@ -182,6 +188,11 @@
               <input type="checkbox" class="form-check-input" id="terms-signup" required>
               <label class="form-check-label" for="terms-signup">I agree to the terms and conditions</label>
             </div>
+            <div class="form-check text-center">
+              <span id="captcha-answer-signup"></span>
+              <input type="text" id="captcha-input-signup" />
+            </div>
+            <input type="text" name="antispybot" style="display:none" />
             <div class="btn-submit">
               <button type="submit" id="submit-signup" class="btn btn-book">Submit</button>
             </div>

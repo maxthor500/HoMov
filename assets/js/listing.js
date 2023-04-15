@@ -78,13 +78,11 @@ const prevMovie = () => {
 
 // toggle class display: none
 const displayForm = () => {
-    console.log("start")
     // get the current url
     const currentHref = window.location.href;
     // divide the url removing the last char
     const removeLastChar = currentHref.split("?");
-
-    console.log(removeLastChar[1])
+    
     if (removeLastChar[1] === "booking") {
         addOptionsToForm();
         $("#booking").toggleClass("d-none");
@@ -93,7 +91,6 @@ const displayForm = () => {
     } else if (removeLastChar[1] === "signup") {
         $("#signup").toggleClass("d-none");
     }
-    console.log("end")
 
 }
 
@@ -132,21 +129,6 @@ const addOptionsToForm = () => {
     }
 }
 
-// function to confirm the form took from the course 
-const confirm = () => {
-    const form = document.getElementById("booking-form");
-    if (form.checkValidity()) {
-        const datePicker = new Date($("#date-picker").val());
-        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-        const emailName = document.getElementById("email").value;
-        const movieOptions = $("#movie-options option:selected").val();
-        const optionId = Array.from(movieOptions)[0];
-        const movieSelected = $(movies[optionId].name)[0].innerHTML;
-        createCookie("movie_booked", movieSelected, datePicker);
-        alert(movieSelected + " is booked for " + datePicker.toLocaleDateString("en-GB", options) + " and email address: " + emailName);
-    }
-}
-
 // how to prevent the confirm form resubmission dialog
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href)
@@ -174,8 +156,52 @@ window.onload = () => {
     if (Number.isInteger(choice)) {
         showMovieData();
     }
-    console.log("page loaded")
+
     displayForm();
+}
+
+function spanQuestion(id) {
+    const firstRandom = Math.floor(Math.random() * 21);
+    const secondRandom = Math.floor(Math.random() * 21);
+    const sum = firstRandom + secondRandom;
+    const captcha = document.getElementById(id);
+    captcha.textContent = "What is " + firstRandom + " + " + secondRandom + "?";
+
+    return sum;
+}
+
+const sumSignup = spanQuestion("captcha-answer-signup");
+const sumBook = spanQuestion("captcha-answer-book");
+
+
+// function to validate the captcha 
+function checkAnswer(id, sum){
+    const answer = document.getElementById(id).value;
+    if (answer === sum) {
+        return true;
+    } 
+
+    return false;
+}
+
+// function to confirm the form took from the course 
+const confirm = () => {
+    const form = document.getElementById("booking-form");
+    let isValid = false;
+    if (checkAnswer("captcha-input-book", sumBook)) {
+        isValid = true;
+    }
+    console.log(isValid)
+    if (form.checkValidity() && isValid) {
+        const datePicker = new Date($("#date-picker").val());
+        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        const emailName = document.getElementById("email").value;
+        const movieOptions = $("#movie-options option:selected").val();
+        const optionId = Array.from(movieOptions)[0];
+        const movieSelected = $(movies[optionId].name)[0].innerHTML;
+        createCookie("movie_booked", movieSelected, datePicker);
+        alert(movieSelected + " is booked for " + datePicker.toLocaleDateString("en-GB", options) + " and email address: " + emailName);
+    }
 }
 
 // function to prevent form submission if the passwords do not match
@@ -184,6 +210,10 @@ $('#submit-signup').click(function(){
     const repeatPassword = $('#repeat-password').val();
     if(password !== repeatPassword){
         $("#errors").text('Passwords do not match');
+        return false;
+    }
+    if (!checkAnswer("captcha-input-signup", sumSignup)) {
+        $("#errors").text("Incorrect answer, please try again.");
         return false;
     }
     // submit form

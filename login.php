@@ -1,42 +1,53 @@
-<?php 
-$errors = []; 
+<?php
 
-    // server and db 
-    $serverName = $_SERVER['SERVER_PORT'] == 3306 ? "localhost" : "127.0.0.1:3307"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "test";
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    echo '<body style="background-color:#e0e0e0;">';
-    
-    if (empty ($errors))
-    {
-        // Create database connection
-        $db = mysqli_connect($serverName, $username, $password, $dbname);
+    $mysqli = require __DIR__ . "/database.php";
         
-        // Check connection
-        if($db === false){
-            die("ERROR: Could not connect. " . mysqli_connect_error());
-        }
-        
-        if(isset($_POST['email-login']) && isset($_POST['current-password'])){
-            $email = $_POST['email-login'];
-            $password = $_POST['current-password'];
-          
-            $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-            $result = mysqli_query($db, $sql);
-            $row = mysqli_fetch_assoc($result);
-            if($row){
-                echo nl2br("<p style='font-size:2vw;'>User is present in the database and email and password match</p>");
-            }
-            else{
-                echo nl2br("<p style='font-size:2vw;'>User is not present in the database and email and password match</p>");
-                header("Refresh: 5; url=./listing.html?login");
-            }
-        }
+    $sql = sprintf("SELECT * FROM users
+                    WHERE email = '%s'",
+                   $mysqli->real_escape_string($_POST["email-login"]));
     
-        // close database connection
-        mysqli_close($db);
+    $result = $mysqli->query($sql);
+    
+    $user = $result->fetch_assoc();
+    
+    if ($user) {
+        
+        if (password_verify($_POST["current-password"], $user["password"])) {
+            
+            session_start();
+            
+            session_regenerate_id();
+            
+            $_SESSION["user_id"] = $user["id"];
+            
+            header("Location: index.php");
+            exit;
+        }
     }
+    
+    $is_invalid = true;
+}
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+    <h1>Login</h1>
+    
+    <?php if ($is_invalid): ?>
+        <em>Invalid login</em>
+    <?php endif; ?>
+    
+    <?php header("Refresh: 5; url=./listing.html?login"); ?>
+    
+</body>
+</html>

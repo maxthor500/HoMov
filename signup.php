@@ -1,23 +1,12 @@
 <?php
     $errors = []; 
-
-    // server and db 
-    $serverName = $_SERVER['SERVER_PORT'] == 3306 ? "localhost" : "127.0.0.1:3307"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "test";
     
     echo '<body style="background-color:#e0e0e0;">';
     
     if (empty ($errors))
     {
         // Create database connection
-        $db = mysqli_connect($serverName, $username, $password, $dbname);
-        
-        // Check connection
-        if($db === false){
-            die("ERROR: Could not connect. " . mysqli_connect_error());
-        }
+        $mysqli = require __DIR__ . "/database.php";
         
         // Get the cookie data
         $firstName = $_POST['firstName'];
@@ -29,23 +18,32 @@
 
         if ($repeat_password == $password) {
             // encrypt the password before saving in the database
-            $password = md5($password);
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             // Create SQL query
             $sql = "INSERT INTO users (firstName, lastName, email, password) 
-                    VALUES('$firstName', '$lastName', '$email', '$password')";
+                    VALUES('$firstName', '$lastName', '$email', '$password_hash')";
 
-            if(mysqli_query($db, $sql)){
+            $stmt = $mysqli->stmt_init();
+
+            if ( ! $stmt->prepare($sql)) {
+                die("SQL error: " . $mysqli->error);
+            }
+                            
+            if ($stmt->execute()) {
                 echo nl2br("<p style='font-size:2vw;'>Your registration is successfully recorded</p>");
-            } else{
-                echo "ERROR: Could not save data. " . mysqli_error($db);
+                header("Refresh: 5; url=./listing.html?login");
+                exit;
+                
+            } else {
+                
+                if ($mysqli->errno === 1062) {
+                    die("email already taken");
+                } else {
+                    die($mysqli->error . " " . $mysqli->errno);
+                }
             }
         }
-        
-        header("Refresh: 5; url=./index.html");
-    
-        // close database connection
-        mysqli_close($db);
     }
 
 ?>

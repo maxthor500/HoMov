@@ -133,7 +133,12 @@ pushMovies();
 const showTable = (arr) => {
     for (let key in arr) {
         const rowMovie = arr[key]
-        rowMovie.renderTableRow();
+        // get the current url
+        const currentHref = window.location.href;
+    
+        if (currentHref.endsWith("index.html")) {
+            rowMovie.renderTableRow();
+        }
     }
 }
 

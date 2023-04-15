@@ -1,3 +1,27 @@
+<?php
+
+session_start();
+
+$mysqli = require __DIR__ . "/database.php";
+
+if (isset($_SESSION["user_id"])) {
+    
+    $sql = "SELECT * FROM users
+            WHERE id = {$_SESSION["user_id"]}";
+            
+    $result = $mysqli->query($sql);
+    
+    $user = $result->fetch_assoc();
+}
+
+$email = "SELECT email FROM users WHERE id = {$_SESSION["user_id"]}";
+
+$query = "SELECT movie, email, datetime FROM movie_bookings WHERE email = '$email'";
+
+$table_result = mysqli_query($mysqli, $query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +70,11 @@
                   <a class="nav-link" href="listing.html?booking" onclick="setMovieIdCookie()">Book</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="listing.html?login">Login</a>
+                    <?php if (isset($user)): ?>
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <a class="nav-link" href="listing.html?login">Login</a>
+                    <?php endif; ?>
                 </li>
               </ul>
               <!-- Dark/Light mode toggler -->
@@ -58,19 +86,31 @@
         </nav>
     </header>
     <main>
-        <section id="list-movies" class="container-fluid justify-content-center p-2">
-          <table id="movies-table" class="table table-bordered">
-            <thead>
-                <tr>
-                  <th scope="col">Movie</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Date/Time</th>
-                </tr>
-            </thead>
-            <tbody id="body-table">
-
-            </tbody>
-          </table>
+        <section class="container-fluid justify-content-center p-2">
+            <h2 class="heading col text-center m-3">Hello <?= htmlspecialchars($user["firstName"]) ?></h2>
+            <table id="table-booked" class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="col">Movie</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date/Time</th>
+                    </tr>
+                </thead>
+                <tbody id="table-booked">
+                    <?php if ($table_result): ?>
+                        <?php while($row = mysqli_fetch_array($table_result)) {
+                            ?>
+                            <tr>
+                                <td><?php $row['movie'] ?></td>
+                                <td><?php $row['email'] ?></td>
+                                <td><?php $row['date'] ?></td>
+                            </tr>
+                    <?php } ?>
+                    <?php else: ?>
+                        <div id='no-found' class='container'>No Results Found</div>
+                    <?php endif; ?>
+                </tbody>
+            </table>
         </section>
     </main>
     <!-- my footer with github link and copyright that will update automatically in base to the current year -->
@@ -98,9 +138,5 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <!-- my scripts -->
     <script src="assets/js/scripts.js" type="text/javascript"></script>
-    <script>
-      // load the table with all the movies when the page is load
-      showTable(movies);
-    </script>
 </body>
 </html>
